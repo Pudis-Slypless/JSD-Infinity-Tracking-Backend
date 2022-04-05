@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "install": "^0.13.0"
+  }
+}
