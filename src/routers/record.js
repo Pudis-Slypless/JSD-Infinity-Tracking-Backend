@@ -1,29 +1,29 @@
-const express = require('express');
+const express = require("express");
 
-const RecordModel = require('../models/record');
+const RecordModel = require("../models/record");
 
 const router = express.Router();
 
-router.use('/:recordId', async (req, res, next) => {
-  const foundRecord = await RecordModel.findById(req.params.recordId);
+router.use("/:recordId", async (req, res, next) => {
+  const recordId = req.params.recordId;
+
+  if (recordId && !recordId.match(/^[0-9a-fA-F]{24}$/)) {
+    return res.status(404).send("Record not found");
+  }
+  const foundRecord = await RecordModel.findById(recordId);
   if (!foundRecord) {
-    return res.status(404).send('Record not found');
+    return res.status(404).send("Record not found");
   }
   req.record = foundRecord;
-  req.recordIndex = index;
   return next();
 });
 
-router.get('/:recordId', (req, res, next) => {
-  return res.send(req.record);
-});
-
-router.get('/', async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   const records = await RecordModel.find({});
   res.send(records);
 });
 
-router.post('/', async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   const body = req.body;
 
   const newRecord = new RecordModel(body);
@@ -41,11 +41,7 @@ router.post('/', async (req, res, next) => {
   return res.status(201).send(newRecord);
 });
 
-router.put('/:recordId', (req, res, next) => {
-  return res.status(501).send('Not implemented');
-});
-
-router.delete('/:recordId', async (req, res, next) => {
+router.delete("/:recordId", async (req, res, next) => {
   await RecordModel.deleteOne({ _id: req.params.recordId });
   return res.status(204).send(); // 204 = No content which mean it successfully removed
 });

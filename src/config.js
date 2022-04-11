@@ -11,7 +11,7 @@
  **/
 
  module.exports = {
-    mongoUri: 'mongodb+srv://@cluster0.z7ho8.mongodb.net',
+    mongoUri: 'mongodb+srv://cluster0.z7ho8.mongodb.net',
     mongoOptions: {
       user: 'm001-student',
       pass: 'm001-mongodb-basics',
