@@ -25,7 +25,6 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   const body = req.body;
-
   const newRecord = new RecordModel(body);
 
   const errors = newRecord.validateSync();
