@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const recordSchema = new mongoose.Schema({
-  activityName: {
+  activity: {
     type: String,
-    minLength: [3, "Activity name should contains at least 3 char"],
+    minLength: [2, "Activity name should contains at least 2 char"],
   },
   timestamp: { type: Date },
   duration: { type: Number, min: [0, "Duration must be at least 0"] },
