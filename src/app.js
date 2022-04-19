@@ -1,32 +1,15 @@
-const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const cors = require("cors");
+const app = require("../api/index.js");
 
-const config = require("./config");
-
-const userRouter = require("./routers/user");
-
-const app = express();
-
-app.use(bodyParser.json());
-
-app.use(
-  cors({
-    origin: "*",
-    optionsSucessStatus: 200,
-  })
-);
-
-app.use("/users", userRouter);
+const config = require("./config.js");
 
 const boot = async () => {
   // Connect to mongodb
   await mongoose.connect(config.mongoUri, config.mongoOptions);
+  
   // Start express server
-  app.listen(4000, () => {
-    console.log("Server is running");
-    console.log("PostMan GET POST DELETE is Ready !!!");
+  app.listen(config.port, () => {
+    console.log(`Server is listening on port ${config.port}`);
   });
 };
 
