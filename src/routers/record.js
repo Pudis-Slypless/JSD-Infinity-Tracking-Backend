@@ -15,11 +15,12 @@ router.use("/:recordId", async (req, res, next) => {
     return res.status(404).send("Record not found");
   }
   req.record = foundRecord;
+  // req.recordIndex = index;
   return next();
 });
 
 router.get("/", async (req, res, next) => {
-  const records = await RecordModel.find({});
+  const records = await RecordModel.find({}).sort({ timestamp: -1 });
   res.send(records);
 });
 
@@ -38,6 +39,17 @@ router.post("/", async (req, res, next) => {
   await newRecord.save();
 
   return res.status(201).send(newRecord);
+});
+
+router.put("/:recordId", async (req, res, next) => {
+  const updateRecord = await RecordModel.findByIdAndUpdate(
+    req.params.recordId,
+    req.body
+  );
+  if (!updateRecord) {
+    res.status(501).send("Not implemented");
+  }
+  return res.status(201).send(updateRecord);
 });
 
 router.delete("/:recordId", async (req, res, next) => {
