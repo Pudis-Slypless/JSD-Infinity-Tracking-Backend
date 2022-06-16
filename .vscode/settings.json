@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/cda16959-fd15-4409-8eda-57ee3d457fc0/microsoft.web/sites/subscriptions/cda16959-fd15-4409-8eda-57ee3d457fc0/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/Infinity-Tracking-MongoDB",
+    "appService.deploySubpath": "."
+}

@@ -1,29 +1,16 @@
 {
-  "dependencies": {
-    "body-parser": "^1.20.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "install": "^0.13.0",
-    "mongob": "^1.0.0",
-    "mongodb": "^4.5.0",
-    "mongoose": "^6.2.10"
-  },
   "name": "jsd-infinity-tracking-backend",
-  "description": "Learned How to use Node.js, Express, Axios and MongoDB in Final project JSD#1 Bootcamp",
-  "version": "1.0.0",
-  "main": "src/app.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Pudis-Slypless/JSD-Infinity-Tracking-Backend.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Pudis-Slypless/JSD-Infinity-Tracking-Backend/issues"
-  },
-  "homepage": "https://github.com/Pudis-Slypless/JSD-Infinity-Tracking-Backend#readme"
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
+  }
 }
