@@ -11,6 +11,7 @@
  **/
 
 require("dotenv").config();
+// console.log(process.env)
 
 module.exports = {
   isVercel: process.env.IS_VERCEL || false,
